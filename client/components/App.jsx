@@ -1,9 +1,17 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Route } from 'react-router-dom'
+import { connect } from 'react-redux'
 import Home from './Home'
 import MovieView from './MovieView'
+import {getAllMoviesThunk} from '../actions/movies'
 
-function App() {
+function App(props) {
+
+  const {dispatch} = props
+
+  useEffect(() => {
+    dispatch(getAllMoviesThunk)
+  }, [])
 
   return (
     <>
@@ -14,4 +22,4 @@ function App() {
   )
 }
 
-export default App
+export default connect()(App)
