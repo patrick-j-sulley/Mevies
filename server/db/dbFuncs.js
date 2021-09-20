@@ -5,6 +5,13 @@ function getAllMovies (db = connection) {
     .select()
 }
 
+function updateMovie (id, newInfo, db = connection){
+    return db('movies')
+    .update(newInfo)
+    .where('id', id)
+}
+
 module.exports = {
-    getAllMovies
+    getAllMovies,
+    updateMovie
 }

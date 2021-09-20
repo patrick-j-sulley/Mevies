@@ -1,16 +1,18 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import { Route } from 'react-router-dom'
 import { connect } from 'react-redux'
+
 import Home from './Home'
 import MovieView from './MovieView'
+
 import {getAllMoviesThunk} from '../actions/movies'
 
 function App(props) {
 
-  const {dispatch} = props
+  const { dispatch } = props
 
   useEffect(() => {
-    dispatch(getAllMoviesThunk)
+    dispatch(getAllMoviesThunk())
   }, [])
 
   return (

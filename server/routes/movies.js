@@ -8,10 +8,21 @@ router.get('/', (req, res) => {
     db.getAllMovies()
         .then(movies => {
             movies.forEach(movie => {
-                movie.watched = Boolean(movie.watch)
+                movie.watched = Boolean(movie.watched)
             })
             res.json(movies)
         })
 })
+
+router.patch('/:id', (req, res) => {
+
+    const { id } = req.params
+    // .send({watched:true})
+    db.updateMovie(id, req.body)
+        .then((numOfUpdates) => {
+            const itWorked = numOfUpdates === 1
+            res.json({itWorked})
+            })
+        })
 
 module.exports = router
