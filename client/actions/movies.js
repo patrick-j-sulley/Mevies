@@ -1,7 +1,8 @@
-import { fetchAllMovies, updateMovieWatched } from '../apis/movies'
+import { fetchAllMovies, postMovie, updateMovieWatched } from '../apis/movies'
 
 export const SAVE_ALL_MOVIES = 'SAVE_ALL_MOVIES'
 export const MOVIE_WATCHED = 'MOVIE_WATCHED'
+export const SAVE_ONE_MOVIE = 'SAVE_ONE_MOVIE'
 
 // ACTION CREATORS
 
@@ -16,6 +17,13 @@ const movieWatched = (movieId) => {
     return {
         type: MOVIE_WATCHED,
         movieId: movieId
+    }
+}
+
+const saveOneMovie = (movie) => {
+    return {
+        type: SAVE_ONE_MOVIE,
+        movie
     }
 }
 
@@ -42,3 +50,25 @@ export const movieWatchedThunk = (movieId) => {
             })
     }
 }
+
+export const addMovie = (id, title, description, image) => {
+
+        const newMovie = {
+            title,
+            description,
+            image,
+            imdb_id: id,
+            watched: 0,
+            rating: null
+        }
+
+        return (dispatch) => {
+            postMovie(newMovie)
+            .then((obj) => {
+                const { newId } = obj
+                newMovie.id = newId
+                dispatch(saveOneMovie(newMovie))
+            })
+        }
+    }
+

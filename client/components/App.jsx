@@ -17,7 +17,8 @@ function App(props) {
 
   return (
     <>
-      <h1>App</h1>
+      <h1>Mevies</h1>
+      <h4>Ticket for one.</h4>
       <Route exact path='/' component={Home} />
       <Route path='/movie/:id' component={MovieView} />
     </>

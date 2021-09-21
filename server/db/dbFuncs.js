@@ -5,6 +5,11 @@ function getAllMovies (db = connection) {
     .select()
 }
 
+function addMovie (newMovie, db = connection) {
+    return db('movies')
+    .insert(newMovie)
+}
+
 function updateMovie (id, newInfo, db = connection){
     return db('movies')
     .update(newInfo)
@@ -13,5 +18,6 @@ function updateMovie (id, newInfo, db = connection){
 
 module.exports = {
     getAllMovies,
+    addMovie,
     updateMovie
 }

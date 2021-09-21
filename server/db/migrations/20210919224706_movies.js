@@ -3,7 +3,7 @@ exports.up = (knex) => {
     return knex.schema.createTable('movies', t => {
         t.increments('id').primary()
         t.string('title')
-        t.integer('year')
+        t.string('description')
         t.string('image')
         t.string('imdb_id')
         t.boolean('watched')

@@ -14,6 +14,14 @@ router.get('/', (req, res) => {
         })
 })
 
+router.post('/', (req, res) => {
+    db.addMovie(req.body)
+    .then(idArr => {
+        console.log({newId: idArr[0]})
+        res.json({newId: idArr[0]})
+    })
+})
+
 router.patch('/:id', (req, res) => {
 
     const { id } = req.params

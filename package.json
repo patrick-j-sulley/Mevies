@@ -71,6 +71,8 @@
     "webpack-cli": "^4.5.0"
   },
   "dependencies": {
+    "dotenv": "^10.0.0",
+    "dotenv-webpack": "^7.0.3",
     "express": "^4.17.1",
     "knex": "^0.95.11",
     "pg": "^8.5.1",
