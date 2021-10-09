@@ -66,12 +66,12 @@ function AddMovie(props) {
                 ?
                 <>
                     <div>
-                        {renderForm()} <button onClick={toggleForm}>🔒</button>
+                        {renderForm()} <button onClick={toggleForm}>Close</button>
                     </div>
                     {renderList()}
                 </>
                 :
-                <button onClick={toggleForm}>🔓</button>}
+                <button onClick={toggleForm}>🔍</button>}
         </>
     )
 }

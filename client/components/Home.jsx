@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 
 // components
 import AddMovie from './AddMovie'
+import AddRating from './AddRating'
 
 // thunks
 import { movieWatchedThunk } from '../actions/movies'
@@ -38,12 +39,15 @@ function Home(props) {
 
       <p>Have watched:</p>
       <ul>
-        {haveWatched.map(movie => <li key={movie.id}>
+        {haveWatched.map(movie => <><li key={movie.id}>
           <p>{movie.title}</p>
           <p>{movie.description}</p>
           <img src={movie.image} className='results-img'/>
           <p>{movie.watched}</p>
-          <p>Rating: {movie.rating}</p></li>)}
+          <p><AddRating/> : {movie.rating}</p>
+          </li>
+          </>)
+          }
       </ul>
     </>
   )

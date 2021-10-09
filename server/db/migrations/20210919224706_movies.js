@@ -7,7 +7,7 @@ exports.up = (knex) => {
         t.string('image')
         t.string('imdb_id')
         t.boolean('watched')
-        t.integer('rating')
+        t.string('rating')
     })
   
 };
